@@ -24,7 +24,7 @@
             ?>
 
             <!-- Slide <?php echo $key ?> -->
-            <div class="carousel-item <?php echo $active ?>" style="background-image: url('assets/Mamba/assets/img/slide/<?php echo $value['gambar'] ?>');">
+            <div class="carousel-item <?php echo $active ?>" style="background-image: url('<?php echo base_url() ?>assets/Mamba/assets/img/slide/<?php echo $value['gambar'] ?>');">
               <div class="carousel-container">
                 <div class="carousel-content container">
                   <h2 class="animate__animated animate__fadeInDown"><?php echo $value['judul'] ?></h2>

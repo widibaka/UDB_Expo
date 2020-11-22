@@ -11,5 +11,15 @@ class Model_expo extends CI_Model
 	{
 		return $this->db->get('hero')->result_array();
 	}
+	
+	public function get_socmed()
+	{
+		return $this->db->get('socmed')->row_array();
+	}
+	
+	public function get_website_settings()
+	{
+		return $this->db->get('website_settings')->row_array();
+	}
 
 }
