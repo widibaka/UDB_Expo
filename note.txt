@@ -1,0 +1,5 @@
+intinya:
+search
+contents
+detail content
+like button
