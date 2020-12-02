@@ -29,6 +29,8 @@
   <link href="<?php echo base_url() ?>assets/Mamba/assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="<?php echo base_url() ?>assets/Mamba/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="<?php echo base_url() ?>assets/Mamba/assets/vendor/aos/aos.css" rel="stylesheet">
+  <!-- Fontawesome -->
+  <link href="<?php echo base_url() ?>assets/NiceAdmin/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url() ?>assets/Mamba/assets/css/style.css" rel="stylesheet">
@@ -39,6 +41,13 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <style type="text/css">
+    /* Widibaka */
+    .gambar-preview{
+      height: 220px;
+    }
+  </style>
 </head>
 
 <body>

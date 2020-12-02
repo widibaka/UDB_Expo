@@ -9,7 +9,7 @@
             <div class="count-box">
               <i class="icofont-document-folder" style="color: #c042ff;"></i>
               <span data-toggle="counter-up">15</span>
-              <p>Project</p>
+              <p>Karya</p>
             </div>
           </div>
 

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Project extends CI_Controller {
+class Karya extends CI_Controller {
 
 	public function __construct()
 	{
@@ -10,6 +10,20 @@ class Project extends CI_Controller {
 	}
 
 	public function index()
+	{
+		$data['content'] = 'main_content';
+		$this->load->view('layer1/template/head');
+		$this->load->view('layer1/template/topbar');
+		$this->load->view('layer1/template/navbar');
+
+		$this->load->view('layer1/template/open_main');
+		$this->load->view('layer1/projects');
+		$this->load->view('layer1/template/close_main');
+
+		$this->load->view('layer1/template/footer');
+	}
+
+	public function detail()
 	{
 		$data['content'] = 'main_content';
 		$this->load->view('layer1/template/head');
