@@ -16,23 +16,31 @@
 
       <nav class="nav-menu float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="<?php echo base_url() ?>">Home</a></li>
-          <li><a href="#team">Masuk</a></li>
-          <li class="drop-down"><a href="">User</a>
-            <ul>
-              <li><a href="#">Dashboard</a></li>
-              <li><a href="#">Logout</a></li>
-              <!-- <li class="drop-down"><a href="#">Drop Down 2</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li> -->
-            </ul>
-          </li>
+          <li class=""><a href="<?php echo base_url() ?>">Home</a></li>
+
+          <?php if ( !empty( $this->session->userdata('username') ) ): ?>
+
+            <li class="drop-down"><a href="javascript:void(0)"><?php echo $this->session->userdata('username') ?></a>
+              <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="<?php echo base_url() ?>auth/logout">Logout</a></li>
+                <!-- <li class="drop-down"><a href="#">Drop Down 2</a>
+                  <ul>
+                    <li><a href="#">Deep Drop Down 1</a></li>
+                    <li><a href="#">Deep Drop Down 2</a></li>
+                    <li><a href="#">Deep Drop Down 3</a></li>
+                    <li><a href="#">Deep Drop Down 4</a></li>
+                    <li><a href="#">Deep Drop Down 5</a></li>
+                  </ul>
+                </li> -->
+              </ul>
+            </li>
+
+          <?php else: ?>
+
+            <li><a href="<?php echo base_url() ?>auth">Login</a></li>
+
+          <?php endif ?>
         </ul>
       </nav><!-- .nav-menu -->
 

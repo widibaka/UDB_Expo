@@ -1,3 +1,8 @@
+<?php 
+  
+  $website_settings = $this->Model_expo->get_website_settings();
+  // var_dump($hero); die();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +10,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Mamba Bootstrap Template - Index</title>
+  <title><?php echo $website_settings['judul'] ?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 

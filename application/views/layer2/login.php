@@ -20,6 +20,7 @@
   <!--external css-->
   <!-- font icon -->
   <link href="<?php echo base_url('assets/NiceAdmin/') ?>css/elegant-icons-style.css" rel="stylesheet" />
+  <link href="<?php echo base_url('assets/NiceAdmin/') ?>css/font-awesome.min.css" rel="stylesheet">
   <link href="<?php echo base_url('assets/NiceAdmin/') ?>css/font-awesome.css" rel="stylesheet" />
   <!-- Custom styles -->
   <link href="<?php echo base_url('assets/NiceAdmin/') ?>css/style.css" rel="stylesheet">
@@ -43,10 +44,11 @@
 
   <div class="container">
 
-    <form class="login-form" action="index.html">
+    <form class="login-form" action="index.html" style="border: 0px; border-radius: 5px;">
       <div class="login-wrap">
         <p class="login-img"><img style="width: 60px;" src="<?php echo base_url('assets/google_api/google.png') ?>"></p>
-        <a href="<?php echo $auth_url ?>" class="btn btn-info btn-lg btn-block" style="border-radius: 5px;" type="submit"><span style="color: #FFF">Login dengan Google</span></a>
+        <a href="<?php echo $auth_url ?>" class="btn btn-success btn-lg btn-block" style="border-radius: 5px;" type="submit"><span style="color: #FFF">Login dengan Google</span></a>
+        <a href="<?php echo base_url() ?>" class="btn btn-info btn-lg btn-block" style="border-radius: 5px;" type="submit"><span style="color: #FFF"> <i class="fa fa-arrow-left"></i> Kembali ke home</span></a>
       </div>
     </form>
     <div class="text-center mt-4">

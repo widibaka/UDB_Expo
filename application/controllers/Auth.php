@@ -25,7 +25,7 @@ class Auth extends CI_Controller
 		$g_client = new \Google_Client(['jwt' => $jwt]);
 		$g_client->setClientId("91581392252-74f54bcmp6jfaj5vs5u3tt4knnuo0err.apps.googleusercontent.com");
 			$g_client->setClientSecret("5HRKlfbfMmYVu1Fv3204jNyh");
-			$g_client->setRedirectUri( base_url('dashboard') );
+			$g_client->setRedirectUri( base_url('auth') );
 			$g_client->addScope("email");
 			$g_client->addScope("profile");
 	    //Step 2 : Create the url
@@ -43,6 +43,15 @@ class Auth extends CI_Controller
 	      }
 	      try {
 	        $pay_load = $g_client->verifyIdToken(); // ini kalo berhasil
+
+	        $email = $pay_load['email'];
+	        $username = $pay_load['name'];
+	        $this->session->set_userdata('email', $email);
+	        $this->session->set_userdata('username', $username);
+
+	        // var_dump($this->session->userdata('email')); die;
+	        redirect(base_url()); // redirect ke home page
+
 	      } catch (Exception $e) {
 	        $e->getMessage();
 	        $this->Model_expo->set_alert('error', 'Silakan coba lagi. (' . $e->getMessage() . ')'); // <-- untuk testing
@@ -54,13 +63,12 @@ class Auth extends CI_Controller
 	    //**
 	    // /.Login with Google
 	    //**
-	    if ( !empty($pay_load) ) {
-	    	$email = $pay_load['email'];
-	    	$username = $pay_load['name'];
-	    	$this->session->set_userdata('email', $email);
-	    	$this->session->set_userdata('username', $username);
-	    }else{
-	    	$this->load->view('layer2/login', $data);
-	    }
+	    $this->load->view('layer2/login', $data);
+  	}
+
+  	public function logout()
+  	{	
+  	    $this->session->sess_destroy();
+  	    redirect( base_url() . 'auth');
   	}
 }
