@@ -11,6 +11,8 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+		$this->session->userdata('email');
+		$this->session->userdata('username');
 		$data['content'] = 'main_content';
 		$this->load->view('layer1/template/head');
 		$this->load->view('layer1/template/topbar');

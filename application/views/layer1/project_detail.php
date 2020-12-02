@@ -57,7 +57,7 @@
 
         <div class="portfolio-details-container">
 
-          <div class="owl-carousel portfolio-details-carousel">
+          <div class="owl-carousel portfolio-details-carousel text-center">
             <img src="<?php echo base_url() ?>assets/Mamba/project/portfolio-details-1.jpg" class="img-fluid" alt="">
             <img src="<?php echo base_url() ?>assets/Mamba/project/portfolio-details-2.jpg" class="img-fluid" alt="">
             <img src="<?php echo base_url() ?>assets/Mamba/project/portfolio-details-3.jpg" class="img-fluid" alt="">
