@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2020 at 01:20 AM
+-- Generation Time: Dec 02, 2020 at 02:43 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -47,6 +47,22 @@ INSERT INTO `hero` (`id`, `judul`, `keterangan`, `gambar`, `link`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `id_project` int(11) NOT NULL,
+  `nama` varchar(120) NOT NULL,
+  `id_kategori` int(10) NOT NULL,
+  `tanggal` int(20) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `id_tim` int(11) NOT NULL,
+  `gambar` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `socmed`
 --
 
@@ -65,6 +81,24 @@ CREATE TABLE `socmed` (
 
 INSERT INTO `socmed` (`id`, `twitter`, `facebook`, `instagram`, `skype`, `linkedin`) VALUES
 (1, 'https://twitter.com', 'https://facebook.com', 'https://instagram.com', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `email` varchar(120) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `email`) VALUES
+(1, 'widibaka55@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -95,9 +129,21 @@ ALTER TABLE `hero`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`id_project`);
+
+--
 -- Indexes for table `socmed`
 --
 ALTER TABLE `socmed`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -115,6 +161,18 @@ ALTER TABLE `website_settings`
 --
 ALTER TABLE `hero`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `id_project` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
