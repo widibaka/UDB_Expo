@@ -21,7 +21,64 @@ class Model_expo extends CI_Model
 	{
 		return $this->db->get('website_settings')->row_array();
 	}
+	
+	public function get_kategori()
+	{
+		return $this->db->get('kategori')->result_array();
+	}
+	
+	public function get_karya($wildcard = false, $order_by = false)
+	{
+		if ( $wildcard != false ) {
+			$kata_kunci = explode(' ', $wildcard);
+			foreach ($kata_kunci as $key => $kata_kunci_satuan) {
+				$this->db->or_like('nama', $kata_kunci_satuan); // kalau ada di judul
+				$this->db->or_like('deskripsi', $kata_kunci_satuan); // kalau ada di judul
+			}
+		}
+		if ( $order_by != false ) {
+			$this->db->order_by($order_by);
+		}
+		return $this->db->get('karya');
+	}
+	
+	public function get_karya_per_page()
+	{
+		$this->db->select('per_page');
+		$this->db->limit(1);
+		return $this->db->get('website_settings')->row_array()['per_page'];
+	}
+	
+	public function get_count_like_karya($id_karya)
+	{
+		$this->db->where('id_karya', $id_karya);
+		$result = $this->db->get('likes')->num_rows();
+		if ( !empty($result) ) {
+			return $result;
+		}else{
+			return 0;
+		}
+	}
+	
+	public function get_karya_by_id($nama_karya)
+	{
+		$this->db->where('nama', $nama_karya);
+		$result = $this->db->get('karya')->row_array();
+		if ( !empty($result) ) {
+			return $result;
+		}else{
+			return 0;
+		}
+	}
 
+
+	public function daftarkan_user($email)
+	{
+		$data = [
+			'email' => $email,
+		];
+		$this->db->insert( 'user', $data );
+	}
 
 	public function set_alert($jenis, $pesan)
 	{
@@ -29,23 +86,16 @@ class Model_expo extends CI_Model
 		$this->session->set_flashdata( $jenis, $pesan );
 	}
 
-	public function check_email_pemilih($email)
+	
+	public function check_if_account_exist($email)
 	{
-		$yuukensha = $this->db->get('pemilwa_hmp_yuukensha')->result_array();
-		$status['email'] = false;
-		$status['kosong'] = false;
-		foreach ($yuukensha as $key => $value) {
-			if ( $value['email'] == $email ) {
-				$status['email'] = true;
-
-				if ( $value['kohousha_index'] == 'karappo' ) {
-					$status['kosong'] = true;
-				}
-
-			}
-			
+		$this->db->where('email', $email);
+		$result = $this->db->get('user')->row_array();
+		if ( !empty($result) ) {
+			return $result;
+		}else{
+			return false;
 		}
-		return $status;
 	}
 
 	public function refresh()

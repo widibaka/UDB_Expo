@@ -16,8 +16,8 @@
 
       <nav class="nav-menu float-right d-none d-lg-block">
         <ul>
-          <li class=""><a href="<?php echo base_url() ?>">Home</a></li>
-          <li class=""><a href="<?php echo base_url() ?>karya">Karya</a></li>
+          <li><a href="<?php echo base_url() ?>">Home</a></li>
+          <li><a href="<?php echo base_url() ?>karya">Karya</a></li>
 
           <?php if ( !empty( $this->session->userdata('username') ) ): ?>
 

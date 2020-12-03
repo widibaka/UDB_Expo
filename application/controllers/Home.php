@@ -18,10 +18,11 @@ class Home extends CI_Controller {
 		$this->load->view('layer1/template/head');
 		$this->load->view('layer1/template/topbar');
 		$this->load->view('layer1/template/navbar');
-		$this->load->view('layer1/template/hero');
+		$this->load->view('layer1/hero');
 
 		$this->load->view('layer1/template/open_main');
 		$this->load->view('layer1/home');
+		$this->load->view('layer1/kategori');
 		$this->load->view('layer1/template/close_main');
 
 		$this->load->view('layer1/template/footer');

@@ -44,12 +44,18 @@ class Auth extends CI_Controller
 	      try {
 	        $pay_load = $g_client->verifyIdToken(); // ini kalo berhasil
 
+
 	        $email = $pay_load['email'];
 	        $username = $pay_load['name'];
+
+	        // check apakah user dengan email ini ada?
+	        if ( $this->Model_expo->check_if_account_exist( $email ) == false ) {
+	        	$this->session->set_flashdata('first_login', $username);
+	        	$this->Model_expo->daftarkan_user( $email );
+	        }
 	        $this->session->set_userdata('email', $email);
 	        $this->session->set_userdata('username', $username);
 
-	        // var_dump($this->session->userdata('email')); die;
 	        redirect(base_url()); // redirect ke home page
 
 	      } catch (Exception $e) {

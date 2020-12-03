@@ -1,7 +1,7 @@
 <?php 
   
   $website_settings = $this->Model_expo->get_website_settings();
-  // var_dump($hero); die();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +31,8 @@
   <link href="<?php echo base_url() ?>assets/Mamba/assets/vendor/aos/aos.css" rel="stylesheet">
   <!-- Fontawesome -->
   <link href="<?php echo base_url() ?>assets/NiceAdmin/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Sweetalert -->
+  <link href="<?php echo base_url('assets/sweetalert/') ?>sweetalert2.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url() ?>assets/Mamba/assets/css/style.css" rel="stylesheet">

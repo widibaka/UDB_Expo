@@ -87,8 +87,25 @@
   <script src="<?php echo base_url() ?>assets/Mamba/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="<?php echo base_url() ?>assets/Mamba/assets/vendor/aos/aos.js"></script>
 
+  <!-- Sweetalert -->
+  <script type="text/javascript" src="<?php echo base_url() ?>assets/sweetalert/sweetalert2.all.min.js"></script>
+
   <!-- Template Main JS File -->
   <script src="<?php echo base_url() ?>assets/Mamba/assets/js/main.js"></script>
+
+  <?php if ( !empty( $this->session->flashdata('first_login') ) ): ?>
+    <script type="text/javascript">
+      function fire() {
+        Swal.fire({
+          icon: 'success',
+          title: 'Selamat datang <?php echo $this->session->flashdata('first_login') ?>!',
+          text: 'Sekarang kamu telah terdaftar sebagai user.',
+        })
+      }
+      // jalankan
+      fire();
+    </script>
+  <?php endif ?>
 
 </body>
 

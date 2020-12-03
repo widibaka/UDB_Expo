@@ -9,10 +9,6 @@
 .icofont-heart{
   font-size: 30px;
 }
-
-.tombol-love:hover .icofont-heart {
-  color: red;
-}
 .heart-active { /* Style after switching */
   animation: animate  .4s steps(28) 1; /* Animation (name, event, frame by frame, once) */
   color: red;
